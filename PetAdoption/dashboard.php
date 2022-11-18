@@ -82,6 +82,7 @@ if ($result_pets->num_rows > 0) {
         </ul>
     </td>
         <td> $" . $row_pets['location'] . "</td>
+        <td> $" . $row_pets['status'] . "</td>
         <td>
         <a href='pets/update.php?id=" . $row_pets['pet_id'] . "'><button class='btn btn-outline-dark btn-sm'>Edit</button></a>
         <a href='pets/delete.php?id=" . $row_pets['pet_id'] . "'><button class='btn btn-outline-dark btn-sm'>Delete</button></a>
@@ -172,6 +173,7 @@ mysqli_close($connect);
                     <th>Description</th>
                     <th>Info</th>
                     <th>Location</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
