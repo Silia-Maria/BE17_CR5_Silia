@@ -24,10 +24,10 @@ function file_upload($picture, $source = 'user')
                 if ($fileSize < 5000000) {
                     $fileNewName = uniqid("") . "." . $fileExtension;
                     if ($source == 'pet') {
-                        $destination = "../../pictures/$fileName";
+                        $destination = "../../pictures/$fileNewName";
                         // because pet create comes from actions in the petfolder
                     } elseif ($source == 'user') {
-                        $destination = "pictures/$fileName";
+                        $destination = "pictures/$fileNewName";
                         // user create is same level as pictures
                     }
                     if (move_uploaded_file($fileTmpName, $destination)) {

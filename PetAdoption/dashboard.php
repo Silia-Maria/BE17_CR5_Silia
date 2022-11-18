@@ -76,13 +76,13 @@ if ($result_pets->num_rows > 0) {
         <ul>
             <li>Age:" . $row_pets['age'] . "</li>
             <li>Size:" . $row_pets['size'] . "</li>
-            <li>Vaccinated:" . $row_pets['vaccionation'] . "</li>
+            <li>Vaccinated:" . $row_pets['vaccination'] . "</li>
             <li>Breed:" . $row_pets['breed'] . "</li>
             <li>Breed:" . $row_pets['breed'] . "</li>
         </ul>
     </td>
-        <td> $" . $row_pets['location'] . "</td>
-        <td> $" . $row_pets['status'] . "</td>
+        <td>" . $row_pets['location'] . "</td>
+        <td> " . $row_pets['status'] . "</td>
         <td>
         <a href='pets/update.php?id=" . $row_pets['pet_id'] . "'><button class='btn btn-outline-dark btn-sm'>Edit</button></a>
         <a href='pets/delete.php?id=" . $row_pets['pet_id'] . "'><button class='btn btn-outline-dark btn-sm'>Delete</button></a>
