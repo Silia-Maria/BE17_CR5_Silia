@@ -91,7 +91,7 @@ mysqli_close($connect);
             <span class="text-danger"><?php echo $passError ?></span>
             <!--Button Login-->
             <button class="btn btn-outline-dark w-100 mb-4" name="btn-login" type="submit">Sign up</button>
-            <p class="text-center">Not registered yet? <a href="register.php">Click here!</a></p>
+            <p class="text-center">Not registered yet? <a href="registration.php">Click here!</a></p>
 
         </form>
     </div>
