@@ -1,0 +1,8 @@
+/* Forms */
+
+input {
+    border: none;
+    border-bottom: 1.5px solid black;
+    outline: none;
+    text-transform: uppercase;
+}
