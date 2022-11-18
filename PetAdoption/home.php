@@ -32,7 +32,7 @@ if (mysqli_num_rows($resPets) > 0) {
             <div class='card-body'>
                 <h5 class='card-title'>" . $rowPets['name'] . "</h5>
                 <p class='card-text'>" . $rowPets['description'] . "</p>
-                <a href='#' class='btn btn-outline-dark'>About " . $rowPets['name'] . "</a>
+                <a href='details.php?id=" . $rowPets['pet_id'] . "' class='btn btn-outline-dark'>About " . $rowPets['name'] . "</a>
             </div>
         </div>
     </div>";
