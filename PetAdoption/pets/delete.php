@@ -19,6 +19,7 @@ if ($_GET['id']) {
     $data = mysqli_fetch_assoc($result);
     if (mysqli_num_rows($result) == 1) {
         $name = $data['name'];
+        $age = $data['age'];
         $picture = $data['picture'];
         $location = $data['location'];
         $description = $data['description'];

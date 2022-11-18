@@ -84,11 +84,15 @@ mysqli_close($connect);
             }
             ?>
             <!--Email-->
-            <input type="text" autocomplete="off" class="w-100 mb-4" name="email" placeholder="Email Address" value="<?php echo $email ?>">
-            <span class="text-danger"><?php echo $emailError ?></span>
+            <div class="mb-4">
+                <input type="text" autocomplete="off" class="w-100" name="email" placeholder="Email Address" value="<?php echo $email ?>">
+                <span class="text-danger small"><?php echo $emailError ?></span>
+            </div>
             <!--Password-->
-            <input type="password" autocomplete="off" class="w-100 mb-5" name="password" placeholder="Password">
-            <span class="text-danger"><?php echo $passError ?></span>
+            <div class="mb-4">
+                <input type="password" autocomplete="off" class="w-100 mb-5" name="password" placeholder="Password">
+                <span class="text-danger small"><?php echo $passError ?></span>
+            </div>
             <!--Button Login-->
             <button class="btn btn-outline-dark w-100 mb-4" name="btn-login" type="submit">Sign up</button>
             <p class="text-center">Not registered yet? <a href="registration.php">Click here!</a></p>

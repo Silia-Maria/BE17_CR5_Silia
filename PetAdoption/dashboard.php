@@ -74,11 +74,11 @@ if ($result_pets->num_rows > 0) {
         <td> " . $row_pets['description'] . "</td>
         <td>
         <ul>
-            <li>Age:" . $row_pets['age'] . "</li>
-            <li>Size:" . $row_pets['size'] . "</li>
-            <li>Vaccinated:" . $row_pets['vaccination'] . "</li>
-            <li>Breed:" . $row_pets['breed'] . "</li>
-            <li>Breed:" . $row_pets['breed'] . "</li>
+            <li>Age: " . $row_pets['age'] . " years</li>
+            <li>Size: " . $row_pets['size'] . " cm</li>
+            <li>Vaccinated: " . $row_pets['vaccination'] . "</li>
+            <li>Breed: " . $row_pets['breed'] . "</li>
+            <li>Status: " . $row_pets['status'] . "</li>
         </ul>
     </td>
         <td>" . $row_pets['location'] . "</td>

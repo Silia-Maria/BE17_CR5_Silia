@@ -18,6 +18,7 @@ if ($_GET['id']) {
     if (mysqli_num_rows($result) == 1) {
         $data = mysqli_fetch_assoc($result);
         $name = $data['name'];
+        $age = $data['age'];
         $picture = $data['picture'];
         $location = $data['location'];
         $description = $data['description'];
@@ -71,6 +72,8 @@ if ($_GET['id']) {
     <div class="dashboard-hero">
         <div class="dashboard-text">
             <h1>Update Request for: <br> <?php echo $name ?></h1>
+            <img src="../pictures/<?php echo $picture ?>" alt="" width='150' height='150' class="dashboard-pic">
+
         </div>
     </div>
 
@@ -102,12 +105,13 @@ if ($_GET['id']) {
             </div>
 
             <div class="d-flex mb-5">
+                <input type="file" name="picture" class="w-50 me-5">
                 <input type="text" name="description" placeholder="Description" class="w-50" value="<?php echo $description ?>">
-                <input type="file" name="picture" class="w-50">
-
             </div>
+
             <input type="hidden" name="pet_id" value="<?php echo $data['pet_id'] ?>">
             <input type="hidden" name="picture" value="<?php echo $data['picture'] ?>">
+
             <!--Button to upload or go back-->
             <a href="../dashboard.php"><button class="btn btn-outline-dark w-100 me-5 mb-3" type='button'>Go Back</button></a>
 

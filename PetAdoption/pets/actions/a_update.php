@@ -20,16 +20,16 @@ if ($_POST) {
     $vaccination = $_POST['vaccination'];
     $size = $_POST['size'];
     $breed = $_POST['breed'];
-    $status = $_POST['status'];
+
     $pet_id = $_POST['pet_id'];
     $uploadError = "";
     $picture = file_upload($_FILES['picture'], 'pet');
 
     if ($picture->error === 0) {
         ($_POST['picture'] == 'pet.jpg') ?: unlink("../../pictures/$_POST[picture]");
-        $sql = "UPDATE pets SET name='$name',picture='$picture->fileName',  location='$location', age=$age, description='$description', size=$size, vaccination='$vaccination', breed='$breed', status='$status' WHERE pet_id = {$pet_id}";
+        $sql = "UPDATE pets SET name='$name',picture='$picture->fileName',  location='$location', age=$age, description='$description', size=$size, vaccination='$vaccination', breed='$breed' WHERE pet_id = {$pet_id}";
     } else {
-        $sql = "UPDATE pets SET name='$name', location='$location', age=$age, description='$description', size=$size, vaccination='$vaccination', breed='$breed', status='$status' WHERE pet_id = {$pet_id}";
+        $sql = "UPDATE pets SET name='$name', location='$location', age=$age, description='$description', size=$size, vaccination='$vaccination', breed='$breed' WHERE pet_id = {$pet_id}";
     }
     if (mysqli_query($connect, $sql) === TRUE) {
         $icon = "<i class='fa-regular fa-circle-check text-success icon-alert'></i>";
