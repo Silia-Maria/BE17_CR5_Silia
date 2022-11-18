@@ -22,6 +22,14 @@ $resPets = mysqli_query($connect, $query_pets);
 $petscard = "";
 $seniorcard = "";
 $card = "";
+$emptycard = "<div class='swiper-slide'>
+<div class='card' style='width: 18rem;'>
+    <img src='https://images.unsplash.com/photo-1606103897759-4ea5eea942b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80' class='card-img-top'>
+    <div class='card-body'>
+        <h5 class='card-title'>Sorry no Pets available</h5>
+    </div>
+</div>
+</div>";
 
 
 if (mysqli_num_rows($resPets) > 0) {
@@ -44,7 +52,23 @@ if (mysqli_num_rows($resPets) > 0) {
             $petscard .= $card;
         }
     }
+} else {
+    $card = $emptycard;
 }
+// check if seniors is empty 
+$sql_senior = "SELECT * FROM pets WHERE age >= 8";
+$senior_row = mysqli_query($connect, $sql_senior);
+if (mysqli_num_rows($senior_row) == 0) {
+    $seniorcard = $emptycard;
+}
+
+// check if pets is empty 
+$sql_pets = "SELECT * FROM pets WHERE age < 8";
+$pets_row = mysqli_query($connect, $sql_pets);
+if (mysqli_num_rows($pets_row) == 0) {
+    $petscard = $emptycard;
+}
+
 mysqli_close($connect);
 ?>
 

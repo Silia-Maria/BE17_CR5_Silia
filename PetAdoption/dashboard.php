@@ -41,6 +41,7 @@ if ($result->num_rows > 0) {
         <td>" . $row['email'] . "</td>
         <td>" . $row['address'] . "</td>
         <td>" . $number . "</td>
+        <td>" . $data['name'] . "</td>
        
        
     </tr>";
@@ -78,7 +79,7 @@ if ($result_pets->num_rows > 0) {
             <li>Size: " . $row_pets['size'] . " cm</li>
             <li>Vaccinated: " . $row_pets['vaccination'] . "</li>
             <li>Breed: " . $row_pets['breed'] . "</li>
-            <li>Status: " . $row_pets['status'] . "</li>
+           
         </ul>
     </td>
         <td>" . $row_pets['location'] . "</td>
@@ -116,7 +117,7 @@ mysqli_close($connect);
 -------------------->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Sheltered</a>
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -124,7 +125,8 @@ mysqli_close($connect);
             </div>
 
             <p> <a href="logout.php?logout">Logout</a></p>
-            <p><a href="update.php?id=<?php echo $_SESSION['adm'] ?>">Update Profile</a></p>
+
+            <p> <a href="update.php?id=<?php echo $_SESSION['adm'] ?>">Update Profile</a></p>
         </div>
     </nav>
 

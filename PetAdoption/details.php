@@ -42,13 +42,11 @@ if ($_GET['id']) {
                     <li>Breed: " . $breed . "</li>
                     <li>Status: " . $status . "</li>
                 </ul>
-                
+                <form method='post' action='pets/adopt.php'>
                 <input type='hidden' name='pet_id' value='" . $pet_id . "'/>
                 <button type='submit' name='submit' class='btn btn-outline-dark'>Adopt Me!</button>
                 <a href='home.php'><button class='btn btn-outline-dark' type='button'>Go Back</button></a>
-
-                
-            
+                </form>     
                 
             </div>
         </div>
