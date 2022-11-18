@@ -1,6 +1,7 @@
 /* Forms and <a> tags */
 
-input {
+input,
+select {
     border: none;
     border-bottom: 1.5px solid black;
     outline: none;
