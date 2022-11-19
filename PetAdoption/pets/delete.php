@@ -54,38 +54,34 @@ if ($_GET['id']) {
     <!------------------
     Nav Bar
 -------------------->
-    <nav class="navbar navbar-expand-lg ">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Sheltered</a>
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             </div>
 
-            <p> <a href="../logout.php?logout">Logout</a></p>
-
+            <p class="nav-item"><a href="../logout.php?logout" class="nav-link">Logout<i class="fa-solid fa-arrow-right-from-bracket ms-2"></i></a></p>
         </div>
     </nav>
-
     <!------------------
    Hero
 -------------------->
     <div class="dashboard-hero">
         <div class="dashboard-text">
-            <h1>Delete Request for: <br> <?php echo $name ?></h1>
+            <h1>Delete Request for: <?= $name ?></h1>
+            <img src="../pictures/<?php echo $data['picture'] ?>" alt="" width='150' height='150' class="dashboard-pic">
         </div>
     </div>
 
     <!------------------
  Content
 -------------------->
-    <div class="container">
+    <div class="container my-5">
 
-        <div class="d-flex">
-            <img src="../pictures/<?php echo $data['picture'] ?>" class="user-pic">
-            <h5><?php echo $name ?> </h5>
-        </div>
+
         <h5>Info about <?php echo $name ?></h5>
         <p>description: <?php echo $description ?></p>
 
@@ -97,14 +93,15 @@ if ($_GET['id']) {
             <li>Status: <?php echo $status ?></li>
         </ul>
 
-        <h3>Do you really want to delelte <?php echo $name ?>?</h3>
+        <h3>Do you really want to delete <?php echo $name ?>?</h3>
         <form action="actions/a_delete.php" method="post">
             <input type="hidden" name="pet_id" value="<?php echo $data['pet_id'] ?>">
             <input type="hidden" name="picture" value="<?php echo $data['picture'] ?>">
             <button class="btn btn-outline-dark" type="submit">Yes, delete!</button>
             <a href="../dashboard.php"><button class="btn btn-outline-dark" type="button">No, go back!</button></a>
-        </form>
 
+        </form>
+    </div>
 </body>
 
 </html>

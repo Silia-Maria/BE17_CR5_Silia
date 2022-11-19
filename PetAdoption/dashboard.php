@@ -18,7 +18,10 @@ $sql = "SELECT * FROM users WHERE status != '$status'";
 $result = mysqli_query($connect, $sql);
 
 // showing the adoption in dashboard
-$adopt_query = "SELECT * FROM pets JOIN pet_adoption On (pet_id) = (fk_pet_id)";
+// $adopt_query = "SELECT * FROM pets JOIN pet_adoption On (pet_id) = (fk_pet_id)";
+$adopt_query = "SELECT name, first_name FROM pets 
+JOIN pet_adoption on (pets.pet_id) = (pet_adoption.fk_pet_id)
+Join users on (pet_adoption.fk_user_id) = (users.user_id)";
 $result_adopt = mysqli_query($connect, $adopt_query);
 $data = mysqli_fetch_assoc($result_adopt);
 

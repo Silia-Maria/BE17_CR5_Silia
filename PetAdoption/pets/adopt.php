@@ -57,16 +57,18 @@ $email = $data_user['email'];
 -------------------->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../home.php"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
+            <a class="navbar-brand" href="home.php"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+
             </div>
 
-            <p> <a href="logout.php?logout">Logout</a></p>
+            <img src="pictures/<?= $row['picture'] ?>" class="nav-pic me-2" alt="">
+            <p class="me-4 my-auto"> <a href="../update.php?id=<?php echo $_SESSION['user'] ?>">Welcome <?= $row['first_name'] ?></a></p>
 
-            <p> <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Update Profile</a></p>
+            <p class="nav-item my-auto"><a href="../logout.php?logout" class="nav-link">Logout<i class="fa-solid fa-arrow-right-from-bracket ms-2"></i></a></p>
         </div>
     </nav>
 

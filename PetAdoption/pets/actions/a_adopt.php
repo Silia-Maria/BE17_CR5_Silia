@@ -15,7 +15,7 @@ if ($_POST) {
     $pet_id = $_POST['pet_id'];
     $user_id = $_SESSION['user'];
     $adoption_date = $_POST['adoption_date'];
-    $new_status = "adopted";
+    $new_status = "Adopted";
     $sql = "INSERT INTO pet_adoption(adoption_date, fk_user_id, fk_pet_id) VALUES ('$adoption_date',$user_id,$pet_id)";
     $sql_pets = "UPDATE pets set status = '$new_status' WHERE pet_id = {$pet_id}";
     $pets_res = mysqli_query($connect, $sql_pets);
