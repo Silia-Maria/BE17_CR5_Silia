@@ -17,6 +17,10 @@ a {
     font-size: 5em;
 }
 
+img {
+    object-fit: cover;
+}
+
 
 /* Home.page */
 
@@ -33,6 +37,16 @@ a {
     position: absolute;
     top: 32%;
     left: 5%;
+}
+
+.card-img-top {
+    object-fit: cover !important;
+}
+
+.nav-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 

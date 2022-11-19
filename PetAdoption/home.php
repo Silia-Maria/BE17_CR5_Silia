@@ -35,12 +35,13 @@ $emptycard = "<div class='swiper-slide'>
 if (mysqli_num_rows($resPets) > 0) {
     while ($rowPets = mysqli_fetch_assoc($resPets)) {
         $card = "<div class='swiper-slide'>
-        <div class='card' style='width: 18rem;'>
-            <img src='pictures/" . $rowPets['picture'] . "' class='card-img-top' alt='" . $rowPets['name'] . "'>
+        <div class='card' style='height: 60vh;'>
+            <img src='pictures/" . $rowPets['picture'] . "' class='card-img-top petImage' style='height: 35vh;'alt='" . $rowPets['name'] . "'>
+            
             <div class='card-body'>
                 <h5 class='card-title'>" . $rowPets['name'] . "</h5>
                 <p class='card-text'>" . $rowPets['description'] . "</p>
-                <a href='details.php?id=" . $rowPets['pet_id'] . "' class='btn btn-outline-dark'>About " . $rowPets['name'] . "</a>
+                <a href='details.php?id=" . $rowPets['pet_id'] . "' class='btn btn-outline-dark align-bottom'>About " . $rowPets['name'] . "</a>
             </div>
         </div>
     </div>";
@@ -92,16 +93,18 @@ mysqli_close($connect);
 -------------------->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
+            <a class="navbar-brand" href="home.php"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+
             </div>
 
-            <p> <a href="logout.php?logout">Logout</a></p>
+            <img src="pictures/<?= $row['picture'] ?>" class="nav-pic me-2" alt="">
+            <p class="me-4 my-auto"> <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Welcome <?= $row['first_name'] ?></a></p>
 
-            <p> <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Update Profile</a></p>
+            <p class="nav-item my-auto"><a href="logout.php?logout" class="nav-link">Logout<i class="fa-solid fa-arrow-right-from-bracket ms-2"></i></a></p>
         </div>
     </nav>
 
@@ -134,8 +137,8 @@ mysqli_close($connect);
             <div class="swiper-wrapper">
                 <?php echo $seniorcard ?>
             </div>
-            <div class="swiper-button-next text-light"></div>
-            <div class="swiper-button-prev text-light"></div>
+            <div class="swiper-button-next text-light text-dark"></div>
+            <div class="swiper-button-prev text-light text-dark"></div>
         </div>
 
         <!---Pets-->
@@ -146,8 +149,8 @@ mysqli_close($connect);
             <div class="swiper-wrapper">
                 <?php echo $petscard ?>
             </div>
-            <div class="swiper-button-next text-light"></div>
-            <div class="swiper-button-prev text-light"></div>
+            <div class="swiper-button-next text-dark"></div>
+            <div class="swiper-button-prev text-dark"></div>
         </div>
     </div>
 

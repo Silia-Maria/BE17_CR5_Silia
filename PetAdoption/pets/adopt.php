@@ -57,7 +57,7 @@ $email = $data_user['email'];
 -------------------->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
+            <a class="navbar-brand" href="../home.php"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -76,8 +76,8 @@ $email = $data_user['email'];
 -------------------->
     <div class="dashboard-hero">
         <div class="dashboard-text">
-            <h1>Adopt <?php $name ?></h1>
-            <img src="../pictures/<?php echo $picture; ?>" alt="" width='150' height='150' class="dashboard-pic">
+            <h1>You almost did it!</h1>
+            <h2>Only one more click to adopt cute <?= $name ?></h2>
         </div>
     </div>
 
@@ -85,17 +85,21 @@ $email = $data_user['email'];
  Form
 -------------------->
 
-    <div class="container">
+    <div class="container my-5">
 
+        <div class="row ms-auto ">
+            <img class='col-6' style='height: 60vh;' src="../pictures/<?= $picture ?>" alt="">
+            <div class="col-6 align-self-end">
+                <p> Please select the date you would like to come and pick up your new Friend!</p>
+                <form action="actions/a_adopt.php" method="post">
+                    <input type="date" name="adoption_date" class="w-100" />
+                    <input type='hidden' name='pet_id' value='<?php echo $pet_id ?>' />
+                    <input type="hidden" name='new_status' value="Adopted">
+                    <button type='submit' name='submit' class='btn btn-outline-dark mt-3 w-100'>adopt!</button>
+                </form>
+            </div>
 
-
-        <form action="actions/a_adopt.php" method="post">
-            <input type="date" name="adoption_date" />
-            <input type='hidden' name='pet_id' value='<?php echo $pet_id ?>' />
-            <input type="hidden" name='new_status' value="adopted">
-            <button type='submit' name='submit' class='btn btn-outline-dark'>adopt!</button>
-        </form>
-
+        </div>
 
     </div>
 

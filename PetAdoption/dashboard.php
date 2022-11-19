@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
         }
         $tbody .= "<tr>
         <td>
-            <img src='pictures/" . $row['picture'] . "' alt='' class='user-pic'>
+            <img src='pictures/" . $row['picture'] . "' alt='' class='user-pic me-3'>
         " . $row['first_name'] . " " . $row['last_name'] . "
         </td>
         <td>" . $row['email'] . "</td>
@@ -69,24 +69,24 @@ if ($result_pets->num_rows > 0) {
     while ($row_pets = $result_pets->fetch_array(MYSQLI_ASSOC)) {
         $pets_body .= "<tr>
         <td>
-            <img src='pictures/" . $row_pets['picture'] . "' alt='' class='user-pic'>
+            <img src='pictures/" . $row_pets['picture'] . "' alt='' class='user-pic me-3'>
             " . $row_pets['name'] . "
         </td>
         <td> " . $row_pets['description'] . "</td>
         <td>
-        <ul>
-            <li>Age: " . $row_pets['age'] . " years</li>
-            <li>Size: " . $row_pets['size'] . " cm</li>
-            <li>Vaccinated: " . $row_pets['vaccination'] . "</li>
-            <li>Breed: " . $row_pets['breed'] . "</li>
+        <ul style='list-style-type: none;' class='ps-0'>
+            <li style='list-style-type: none;'><b>Age:</b> " . $row_pets['age'] . " years</li>
+            <li style='list-style-type: none;'><b>Size:</b> " . $row_pets['size'] . " cm</li>
+            <li style='list-style-type: none;'><b>Vaccinated:</b> " . $row_pets['vaccination'] . "</li>
+            <li style='list-style-type: none;'><b>Breed:</b> " . $row_pets['breed'] . "</li>
            
         </ul>
     </td>
         <td>" . $row_pets['location'] . "</td>
         <td> " . $row_pets['status'] . "</td>
         <td>
-        <a href='pets/update.php?id=" . $row_pets['pet_id'] . "'><button class='btn btn-outline-dark btn-sm'>Edit</button></a>
-        <a href='pets/delete.php?id=" . $row_pets['pet_id'] . "'><button class='btn btn-outline-dark btn-sm'>Delete</button></a>
+        <a href='pets/update.php?id=" . $row_pets['pet_id'] . "'><button class='btn btn-outline-dark btn-sm'><i class='fa-solid fa-pencil me-2'></i>Edit</button></a>
+        <a href='pets/delete.php?id=" . $row_pets['pet_id'] . "'><button class='btn btn-outline-dark btn-sm'><i class='fa-regular fa-trash-can me-2'></i>Delete</button></a>
         </td>
     </tr>";
     }
@@ -115,7 +115,7 @@ mysqli_close($connect);
     <!------------------
     Nav Bar
 -------------------->
-    <nav class="navbar navbar-expand-lg ">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,9 +124,7 @@ mysqli_close($connect);
             <div class="collapse navbar-collapse" id="navbarNav">
             </div>
 
-            <p> <a href="logout.php?logout">Logout</a></p>
-
-            <p> <a href="update.php?id=<?php echo $_SESSION['adm'] ?>">Update Profile</a></p>
+            <p class="nav-item"><a href="logout.php?logout" class="nav-link">Logout<i class="fa-solid fa-arrow-right-from-bracket ms-2"></i></a></p>
         </div>
     </nav>
 
@@ -137,6 +135,7 @@ mysqli_close($connect);
         <div class="dashboard-text">
             <img src="pictures/<?php echo $row_adm['picture'] ?>" alt="" width='150' height='150' class="dashboard-pic">
             <h3 class="mt-3"><?php echo $adm_name ?></h3>
+            <p> <a href="update.php?id=<?php echo $_SESSION['adm'] ?>">Update Profile</a></p>
         </div>
     </div>
 
@@ -147,7 +146,8 @@ mysqli_close($connect);
         <!--User Table-->
         <h2>Users</h2>
         <hr>
-        <table class="table mb-5">
+
+        <table class="table align-middle my-5">
             <thead class="text-uppercase">
                 <tr>
                     <th>Name</th>
@@ -162,17 +162,17 @@ mysqli_close($connect);
             </tbody>
         </table>
 
-        <!--Hotels table-->
+        <!--Pet table-->
         <div class="d-flex justify-content-between">
-            <h2>Hotels</h2>
-            <a href="pets/create.php"> <button class="btn btn-sm btn-outline-dark"> add new pet</button></a>
+            <h2>Pets</h2>
+            <a href="pets/create.php"> <button class="btn btn-sm btn-outline-dark"> <i class="fa-solid fa-plus"></i> add new pet</button></a>
         </div>
         <hr>
-        <table class="table">
+        <table class="table align-middle mt-5">
             <thead class="text-uppercase">
                 <tr>
                     <th>Name</th>
-                    <th>Description</th>
+                    <th class="col-3">Description</th>
                     <th>Info</th>
                     <th>Location</th>
                     <th>Status</th>

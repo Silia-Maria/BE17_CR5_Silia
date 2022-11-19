@@ -29,18 +29,18 @@ if ($_GET['id']) {
         $status = $data['status'];
         // print data
         $detail = "<div class='row my-5'>
-        <img src='./pictures/" . $picture . "' class='col-6' alt='" . $name . "'>
+        <img src='./pictures/" . $picture . "' class='col-6' style='height: 60vh;'alt='" . $name . "'>
         <div class='col-6 '>
             <div class='m-5'>
-                <h3 class='mb-5'>" . $name . " is...</h3>
+                <h3 class='mb-3'>" . $name . " is...</h3>
                 <p><em>" . $description . "</em></p>
-                <h4>Info:</h4>
-                <ul>
-                    <li>Age: " . $age . " years</li>
-                    <li>Size: " . $size . " cm</li>
-                    <li>Vaccinated: " . $vaccination . "</li>
-                    <li>Breed: " . $breed . "</li>
-                    <li>Status: " . $status . "</li>
+                <h4 class='mt-5'>Info:</h4>
+                <ul style='list-style-type: none;' class='ps-0'>
+                    <li style='list-style-type: none;'>Age: " . $age . " years</li>
+                    <li style='list-style-type: none;'>Size: " . $size . " cm</li>
+                    <li style='list-style-type: none;'>Vaccinated: " . $vaccination . "</li>
+                    <li style='list-style-type: none;'>Breed: " . $breed . "</li>
+                    <li style='list-style-type: none;'>Status: " . $status . "</li>
                 </ul>
                 <form method='post' action='pets/adopt.php'>
                 <input type='hidden' name='pet_id' value='" . $pet_id . "'/>
@@ -75,16 +75,15 @@ if ($_GET['id']) {
 -------------------->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
+            <a class="navbar-brand" href="home.php"><i class="fa-solid fa-paw me-3"></i>Sheltered</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+
             </div>
 
-            <p> <a href="logout.php?logout">Logout</a></p>
-
-            <p> <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Update Profile</a></p>
+            <p class="nav-item my-auto"><a href="logout.php?logout" class="nav-link">Logout<i class="fa-solid fa-arrow-right-from-bracket ms-2"></i></a></p>
         </div>
     </nav>
 
@@ -102,7 +101,9 @@ if ($_GET['id']) {
   Content
 -------------------->
 
-    <div class="container">
+    <div class="container mt-5">
+        <h2 class="text-center">Your Friend <?= $name ?> awaits!</h2>
+        <hr>
         <?php echo $detail ?>
 
     </div>
