@@ -19,14 +19,15 @@ $result = mysqli_query($connect, $sql);
 
 // showing the adoption in dashboard
 // $adopt_query = "SELECT * FROM pets JOIN pet_adoption On (pet_id) = (fk_pet_id)";
-$adopt_query = "SELECT name, first_name FROM pets 
+$adopt_query = "SELECT pets.name, first_name FROM pets 
 JOIN pet_adoption on (pets.pet_id) = (pet_adoption.fk_pet_id)
 Join users on (pet_adoption.fk_user_id) = (users.user_id)";
 $result_adopt = mysqli_query($connect, $adopt_query);
-$data = mysqli_fetch_assoc($result_adopt);
+$data = mysqli_fetch_all($result_adopt, MYSQLI_ASSOC);
 
 // Body for displaying the users
 $tbody = "";
+$i = 0;
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
         //if number was empty because its not required to register 
@@ -44,10 +45,11 @@ if ($result->num_rows > 0) {
         <td>" . $row['email'] . "</td>
         <td>" . $row['address'] . "</td>
         <td>" . $number . "</td>
-        <td>" . $data['name'] . "</td>
+        <td>" . $data[$i]['name'] . "</td>
        
        
     </tr>";
+        $i++;
     }
 } else {
     $tbody = "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
